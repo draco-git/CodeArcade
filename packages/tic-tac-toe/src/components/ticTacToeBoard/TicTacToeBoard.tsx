@@ -42,7 +42,7 @@ export const TicTacToeBoard = ({
   };
 
   const checkWinner = () => {
-    for (let j = 0; j < 3; j = j + 3) {
+    for (let j = 0; j < 9; j = j + 3) {
       const rowSum = boardState[j] + boardState[j + 1] + boardState[j + 2];
       if (Math.abs(rowSum) === 3) return rowSum < 0 ? "B" : "A";
     }

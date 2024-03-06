@@ -11,9 +11,20 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/icons-material": "^5.15.11",
-    "@mui/material": "^5.15.11"
+    "@mui/material": "^5.15.11",
+    "express": "^4.18.3",
+    "sass": "^1.71.1",
+    "socket.io": "^4.7.4",
+    "socket.io-client": "^4.7.4"
   },
   "devDependencies": {
-    "lerna": "^8.1.2"
+    "lerna": "^8.1.2",
+    "typescript": "^5.3.3",
+    "nodemon": "^3.0.3"
+  },
+  "scripts": {
+    "start:communicator-io": "lerna run --scope communicator-io start",
+    "start:instant-chat-ui": "lerna run --scope instant-chat-ui start",
+    "start:tic-tac-toe": "lerna run --scope tic-tac-toe start"
   }
 }

@@ -94,7 +94,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={sxCenterOfScreen}>
+      <Box sx={{ ...sxCenterOfScreen }}>
         {start ? (
           <TicTacToeBoard
             setStart={setStart}
