@@ -1,7 +1,7 @@
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons/faPaperPlane";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box, IconButton, TextField, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client";
 
 export interface BaseConfig {
@@ -10,23 +10,20 @@ export interface BaseConfig {
 
 export const Base = ({ socket }: BaseConfig) => {
   const [textValue, setTextValue] = useState("");
-  const [messages, setMessages] = useState<Array<string>>([]);
+  const [messages, setMessages] = useState<
+    Array<{ msg: string; socketId: string }>
+  >([]);
+  const msgBoxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    socket.on("receiveMessage", (msg) => {
-      setMessages((prev) => [...prev, msg]);
+    socket.on("receiveMessage", (obj) => {
+      setMessages((prev) => [...prev, obj]);
     });
 
     return () => {
       socket.off("receiveMessage");
     };
   }, [socket]);
-
-  const Msg = (message: string) => (
-    <Box sx={{ p: 2, background: "white" }}>
-      <Typography>{message}</Typography>
-    </Box>
-  );
 
   return (
     <Box
@@ -40,9 +37,28 @@ export const Base = ({ socket }: BaseConfig) => {
         border: "1px solid black",
       }}
     >
-      <Box sx={{ background: "#f3e5e5", flex: 1, overflow: "auto", p: 2 }}>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-          {messages.length > 0 && messages.map((msg: string) => Msg(msg))}
+      <Box
+        ref={msgBoxRef}
+        sx={{ background: "#d3d9e3", flex: 1, overflow: "auto", p: 2 }}
+      >
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
+          {messages.length > 0 &&
+            messages.map(({ msg, socketId }) => {
+              console.log(socketId, socket.id);
+              return (
+                <Box
+                  sx={{
+                    p: 1,
+                    background: socket.id !== socketId ? "white" : "#a3eca3",
+                    borderRadius: "5%",
+                    alignSelf: socket.id !== socketId ? "start" : "end",
+                    width: "fit-content",
+                  }}
+                >
+                  <Typography sx={{ wordBreak: "break-all" }}>{msg}</Typography>
+                </Box>
+              );
+            })}
         </Box>
       </Box>
       <Box
@@ -65,6 +81,9 @@ export const Base = ({ socket }: BaseConfig) => {
             e.preventDefault();
             socket.emit("sendMessage", textValue);
             setTextValue("");
+            if (msgBoxRef.current) {
+              msgBoxRef.current.scrollTop = msgBoxRef.current.scrollHeight;
+            }
           }}
         >
           <FontAwesomeIcon icon={faPaperPlane} size="lg" />
