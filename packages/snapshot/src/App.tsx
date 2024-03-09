@@ -19,11 +19,20 @@ function App() {
       </a>
       <div className="popover__content">
         <p className="popover__message">Joseph Francis "Joey" Tribbiani, Jr.</p>
-        <img alt="Joseph Francis Joey Tribbiani, Jr." src={sampleImage} />
+        <img
+          alt="Joseph Francis Joey Tribbiani, Jr."
+          src={sampleImage}
+          height={300}
+          width={400}
+        />
       </div>
     </div>
   );
-  return <>{[...Array(10)].map(() => single)}</>;
+  return (
+    <div style={{ display: "flex", gap: 2 }}>
+      {[...Array(10)].map(() => single)}
+    </div>
+  );
 }
 
 export default App;

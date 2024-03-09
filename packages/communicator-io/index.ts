@@ -1,27 +1,21 @@
-import express, { Request, Response } from "express";
-import { createServer as createHttpServer } from "http";
-import { createSocketServer } from "./src/server/server";
-import { getClientsCount } from "./src/server/utils";
+import bodyParser from "body-parser";
+import cors from "cors";
+import { Request, Response } from "express";
+import { login } from "./src/apis/login";
+import { signup } from "./src/apis/signup";
+import { app, port } from "./src/server";
 
-const app = express();
-const httpServer = createHttpServer(app);
-const io = createSocketServer(httpServer, {});
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cors());
 
-io.listen(8080);
+app.get("/", (_req: Request, res: Response) => {
+  res.send("hello world");
+});
 
-io.on("connection", (socket) => {
-  console.log(`Socket is connected : ID -> ${socket.id}`);
+app.post("/login", login);
+app.post("/signup", signup);
 
-  socket.on("disconnect", (reason) => {
-    console.log(`${socket.id} is disconnected`, "reason", reason);
-  });
-
-  socket.on("sendMessage", (msg) => {
-    console.log("message from", socket.id, "to", msg);
-    io.emit("receiveMessage", { msg, socketId: socket.id });
-  });
-
-  socket.emit("foo", "j");
-
-  // console.log("Number of client connected", getClientsCount(io));
+app.listen(port, () => {
+  console.log(`Server is started in port: ${port}`);
 });

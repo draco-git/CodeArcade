@@ -1,7 +1,10 @@
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
+import { BrowserRouter } from "react-router-dom";
 import React, { useEffect } from "react";
 import { io } from "socket.io-client";
 import { Base } from "./components/base";
+import { BackgroundPaper } from "./pages/base/BackgroundPaper";
+import "./styles/common.scss";
 
 const CreateClient = () => {
   const socket = io("http://localhost:8080", { autoConnect: false });
@@ -23,20 +26,19 @@ const CreateClient = () => {
 
 function App() {
   return (
-    <Box
-      sx={{
-        width: "100vw",
-        height: "100vh",
-        display: "flex",
-
-        alignItems: "center",
-        justifyContent: "space-evenly",
-      }}
-    >
-      <CreateClient />
-      <CreateClient />
-      <CreateClient />
-    </Box>
+    <BrowserRouter>
+      <Box
+        sx={{
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+        }}
+      >
+        <BackgroundPaper />
+      </Box>
+    </BrowserRouter>
   );
 }
 
