@@ -1,8 +1,8 @@
 {
   "dev": {
     "driver": "pg",
-    "user": "madhav",
-    "password": "madhav",
+    "user": "sravyadeepika",
+    "password": "sravyadeepika",
     "host": "localhost",
     "database": "communicator_v1"
   }

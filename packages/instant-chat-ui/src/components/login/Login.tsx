@@ -1,4 +1,5 @@
 import { Box, TextField, Typography } from "@mui/material";
+import {} from "react-hook-form";
 
 export const Login = () => {
   return (
@@ -20,8 +21,7 @@ export const Login = () => {
         <Typography variant="h3">Login</Typography>
         <form style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           <TextField fullWidth label="Phone number" />
-          <TextField fullWidth label="Phone number" />
-          <TextField fullWidth label="Phone number" />
+          <TextField fullWidth label="Password" />
         </form>
       </Box>
     </Box>
