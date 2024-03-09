@@ -42,6 +42,7 @@
   "scripts": {
     "start:communicator-io": "lerna run --scope communicator-io start",
     "start:instant-chat-ui": "lerna run --scope instant-chat-ui start",
+    "start:ui-components": "lerna run --scope ui-components storybook",
     "start:tic-tac-toe": "lerna run --scope tic-tac-toe start",
     "start:snapshot": "lerna run --scope snapshot start"
   }
