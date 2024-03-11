@@ -3,7 +3,6 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { TextFieldController } from "../textFieldController";
 import { useLogin } from "../../services/login";
 import { useEffect } from "react";
-import { useNavigate } from "react-router";
 
 export interface LoginFormFields {
   readonly phoneNumber: string;
