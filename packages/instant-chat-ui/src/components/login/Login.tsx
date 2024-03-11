@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { TextFieldController } from "../textFieldController";
 import { useLogin } from "../../services/login";
@@ -36,13 +36,21 @@ export const Login = () => {
           p: 2,
           display: "flex",
           flexDirection: "column",
-          alignItems: "initial",
+          alignItems: "center",
+          justifyContent: "center",
           gap: 2,
         }}
       >
-        <Typography variant="h3">Login</Typography>
+        <Typography variant="h3" sx={{ mb: 5 }}>
+          Login
+        </Typography>
         <form
-          style={{ display: "flex", flexDirection: "column", gap: 16 }}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 16,
+            width: "350px",
+          }}
           onSubmit={handleSubmit(onSubmitHandler)}
         >
           <TextFieldController
@@ -55,8 +63,20 @@ export const Login = () => {
             textFieldProps={{ label: "Enter password", type: "password" }}
             controllerProps={{ control }}
           />
-          <Button type="submit">Submit</Button>
+          <Box
+            component="button"
+            sx={{
+              p: 1,
+              px: 2,
+              background: "#011936",
+              cursor: "pointer",
+              borderRadius: "4px",
+            }}
+          >
+            <Typography sx={{ color: "white" }}>Login</Typography>
+          </Box>
         </form>
+        <Typography sx={{ justifySelf: "start" }}>Forgot password</Typography>
       </Box>
     </Box>
   );

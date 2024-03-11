@@ -5,6 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7849cb9-35ff-4426-b221-b204d45f35af" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/packages/instant-chat-ui/src/services/signup.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/communicator-io/.env" beforeDir="false" afterPath="$PROJECT_DIR$/packages/communicator-io/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/communicator-io/database.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/communicator-io/database.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/instant-chat-ui/src/components/login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/instant-chat-ui/src/components/login/Login.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,8 +44,13 @@
     "nodejs_interpreter_path": "/home/madhavgedela/.nvm/versions/node/v20.11.1/bin/node",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/home/madhavgedela/Desktop/personal/CodeArcade/node_modules/prettier",
-    "settings.editor.selected.configurable": "shared-indexes",
-    "ts.external.directory.path": "/snap/intellij-idea-ultimate/478/plugins/javascript-impl/jsLanguageServicesImpl/external"
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/home/madhavgedela/Desktop/personal/CodeArcade/node_modules/typescript/lib"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
