@@ -1,6 +1,6 @@
 {
   "name": "communicator-io",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Create a server and client which can communicate with each other",
   "main": "index.js",
   "scripts": {
