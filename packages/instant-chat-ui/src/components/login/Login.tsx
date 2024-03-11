@@ -1,6 +1,9 @@
 import { Box, Button, Typography } from "@mui/material";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { TextFieldController } from "../textFieldController";
+import { useLogin } from "../../services/login";
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
 
 export interface LoginFormFields {
   readonly phoneNumber: string;
@@ -9,8 +12,18 @@ export interface LoginFormFields {
 
 export const Login = () => {
   const { control, handleSubmit } = useForm<LoginFormFields>();
+  const { login, result } = useLogin();
+  // const navigate = useNavigate();
+
+  useEffect(() => {
+    if (result.data) {
+      console.log(result);
+    }
+  }, [result]);
+
   const onSubmitHandler = ((data) => {
     //     api logic
+    login({ password: data.password, phoneNumber: data.phoneNumber });
   }) satisfies SubmitHandler<LoginFormFields>;
   return (
     <Box className="flex-center" sx={{ width: "100%", height: "100%" }}>

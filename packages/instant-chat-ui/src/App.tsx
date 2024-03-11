@@ -5,6 +5,8 @@ import { io } from "socket.io-client";
 import { Base } from "./components/base";
 import { BackgroundPaper } from "./pages/base/BackgroundPaper";
 import "./styles/common.scss";
+import { Provider } from "react-redux";
+import store from "./services/store";
 
 const CreateClient = () => {
   const socket = io("http://localhost:8080", { autoConnect: false });
@@ -26,19 +28,21 @@ const CreateClient = () => {
 
 function App() {
   return (
-    <BrowserRouter>
-      <Box
-        sx={{
-          width: "100vw",
-          height: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-evenly",
-        }}
-      >
-        <BackgroundPaper />
-      </Box>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Box
+          sx={{
+            width: "100vw",
+            height: "100vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-evenly",
+          }}
+        >
+          <BackgroundPaper />
+        </Box>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
