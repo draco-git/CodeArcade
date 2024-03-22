@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import React, { useEffect } from "react";
 import { io } from "socket.io-client";
 import { Base } from "./components/base";
-import { BackgroundPaper } from "./pages/base/BackgroundPaper";
+import { BackgroundPaper } from "./pages/backgroundPaper";
 import "./styles/common.scss";
 import { Provider } from "react-redux";
 import store from "./services/store";
