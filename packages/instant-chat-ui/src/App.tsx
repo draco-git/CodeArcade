@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, createTheme, ThemeProvider } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
 import React, { useEffect } from "react";
 import { io } from "socket.io-client";
@@ -27,21 +27,28 @@ const CreateClient = () => {
 };
 
 function App() {
+  const theme = createTheme({
+    typography: {
+      allVariants: { fontFamily: "Didact Gothic" },
+    },
+  });
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <Box
-          sx={{
-            width: "100vw",
-            height: "100vh",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-evenly",
-          }}
-        >
-          <BackgroundPaper />
-        </Box>
-      </BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <Box
+            sx={{
+              width: "100vw",
+              height: "100vh",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <BackgroundPaper />
+          </Box>
+        </BrowserRouter>
+      </ThemeProvider>
     </Provider>
   );
 }

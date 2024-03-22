@@ -16,11 +16,9 @@ export const login = (
         throw err;
       }
       const valid = results.rows.length > 0;
-      const responseMessage = valid ? "Valid user" : "Invalid credentials";
 
       response.status(200).json({
-        success: valid,
-        response: results,
+        response: valid,
       });
     }
   );

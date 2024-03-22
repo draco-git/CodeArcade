@@ -4,9 +4,13 @@ export interface LoginQueryParams {
   readonly phoneNumber: string;
   readonly password: string;
 }
+
+export interface LoginResponse {
+  response: boolean;
+}
 export const loginService = baseService.injectEndpoints({
   endpoints: (build) => ({
-    login: build.mutation<void, LoginQueryParams>({
+    login: build.mutation<LoginResponse, LoginQueryParams>({
       query: ({ password, phoneNumber }) => ({
         url: "/login",
         method: "POST",
@@ -23,7 +27,7 @@ export const useLogin = () => {
   const { useLoginMutation } = loginService;
   const [login, result] = useLoginMutation();
   return {
-    login,
+    login: (props: LoginQueryParams) => login(props),
     result,
   };
 };

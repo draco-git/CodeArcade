@@ -7,9 +7,9 @@ export const BackgroundPaper = () => {
   return (
     <Box
       sx={{
-        height: "75%",
-        width: "75%",
-        background: "#011936",
+        height: "90%",
+        width: "90%",
+        background: "#011936", //secondary color
         borderRadius: "8px",
         p: 3,
       }}
@@ -18,3 +18,5 @@ export const BackgroundPaper = () => {
     </Box>
   );
 };
+
+//App -> Background........

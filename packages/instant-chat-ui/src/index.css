@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Didact+Gothic&display=swap');
+
 
 body {
   margin: 0;
-  font-family: "Dosis", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+  font-family: "Didact Gothic", sans-serif;
 }
